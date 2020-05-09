@@ -1,6 +1,6 @@
 <?php
  
- namespace Mvcframevork\Core\routers;
+namespace Mvcframevork\Core\routers;
  
 use Mvcframevork\Core\routers\ParseUrl;
 use Mvcframevork\Core\routers\RouteHelper;
@@ -47,8 +47,11 @@ class BaseRoute
      */
     private static function addRouter(string $method, $arguments): void
     {
+
+      
         $collection = collect([$arguments]);
- 
+        
+   //print_r($collection);
         self::$routers[] = [
             'method'     => $method,
             'url'        => static::replaceUrl($collection->get(0)),
@@ -64,6 +67,9 @@ class BaseRoute
     public function startRoute()
     {
         $currentUrl = route()->getCurrentUrl();
+        // mvc_framevork/public/index
+
+       // echo $currentUrl;
  
         foreach (static::$routers as $k => $v) {
             $uri = $this->returnCurrentUrl(
@@ -71,14 +77,17 @@ class BaseRoute
                     $v['url'], $currentUrl
                 )
             );
- 
+ print_r($matches);
             if (preg_match_all(
+                /*PREG_SET_ORDER
+                Упорядочивает результаты так, что элемент $matches[0] содержит первый набор вхождений, 
+               элемент $matches[1] содержит второй набор вхождений, и т.д.*/
                 '#^'.$uri.'$#', $currentUrl, $matches, PREG_SET_ORDER
             )) {
                 if (route()->getRequestMethod() != $v['method']) {
                     throw new \Exception('Incorrect request method');
                 }
- 
+               
                 $matches['call'] = $v['call'];
                 break;
             }
@@ -101,6 +110,7 @@ class BaseRoute
      */
     private function initRout($matches)
     {
+        
         if ($matches['call'] instanceof \Closure) {
             return call_user_func($matches['call']);
         }

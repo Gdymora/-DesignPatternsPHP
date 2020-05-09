@@ -145,7 +145,7 @@ class ServiceContainer
 
             $reflection = new \ReflectionClass($key);
 
-            /*newInstanceArgs — Создаёт экземпляр класса с переданными параметрами*/ 
+            /*newInstanceArgs — Создаёт экземпляр класса с переданными параметрами*/             
             return $reflection->newInstanceArgs($parameters);
         } else {
             return new $key;

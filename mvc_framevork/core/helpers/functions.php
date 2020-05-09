@@ -1,8 +1,13 @@
 <?php
 
 /**
-*здесь собраны хелперы, которые помогают реализовывать коротку запись
+*здесь собраны хелперы, которые помогают реализовывать короткую запись
 */
+
+/**
+*app() возращает обьект сервис контейнера
+*/
+
 function app()
 {
     //получаем объект ServiceContainer
@@ -16,6 +21,10 @@ function config()
         ->set('config', '\Mvcframevork\Core\config\Repository')
         ->bildClass('config');
 }
+/**
+ * bildClass(Возвращаем объект класса по названию
+ * определен метод ServiceContainer
+*/
 
 function route()
 {
@@ -24,5 +33,10 @@ function route()
 
 function collect(array $data = [])
 {
+    /*
+    *  $reflection = new \ReflectionClass($key);
+    *  $data передается в рефлексию как параиетр
+    *  return $reflection->newInstanceArgs($parameters);
+    */
     return app()->bildClass('Collection', $data);
 }

@@ -14,7 +14,7 @@ trait RouteHelper
         if (false == $uri) {
             $uri = $_SERVER['REQUEST_URI'];
         }
- 
+       
         if (1 != strlen($uri) && '/' == substr($uri, 0, 1)) {
             mb_internal_encoding("UTF-8");
  
@@ -36,12 +36,12 @@ trait RouteHelper
     {
         // Если у текущей ссылки в конце есть слеш
         if (1 != strlen($uri) && '/' == substr($currentUrl, -1)) {
-            // Если у заданного роутера нету слеша - добавляем
+            // Если у роутера нет слеша - добавляем
             if ('/' != substr($uri, -1)) {
                 $uri = $uri.'/';
             }
         } elseif (1 != strlen($uri)) { // если у текущей ссылки в конце нету слеша
-            // Если у заданного роутера есть слеш - обрезаем
+            // Если у роутера есть слеш - обрезаем
             if ('/' == substr($uri, -1)) {
                 mb_internal_encoding("UTF-8");
                 $uri = mb_substr($uri, 0, -1);

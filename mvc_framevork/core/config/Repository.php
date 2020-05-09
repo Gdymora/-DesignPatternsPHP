@@ -4,6 +4,10 @@ namespace Mvcframevork\Core\config;
 
 use Mvcframevork\Core\exceptions\ConfigException\ConfigException;
 
+
+    /**
+     *
+     */
 class Repository
 {
     /**
@@ -52,6 +56,7 @@ class Repository
      */
     private function withTwoKeys($path)
     {
+      //  print_r($this->file[$path[1]][$path[2]]);
         return $this->file[$path[1]][$path[2]];
     }
 
@@ -61,6 +66,7 @@ class Repository
      */
     private function withOneKey($path)
     {
+      //  print_r($this->file[implode('.', $path)]);
         return $this->file[implode('.', $path)];
     }
 }
