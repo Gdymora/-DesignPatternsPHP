@@ -6,10 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit8d37a50cd4e099edbac317054db4af5f
 {
+    public static $files = array (
+        'b07da9490dedf7ce1eed277e1525785a' => __DIR__ . '/../..' . '/mvc_framevork/core/helpers/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
             'Patterns\\' => 9,
+        ),
+        'M' => 
+        array (
+            'Mvcframevork\\' => 13,
         ),
     );
 
@@ -17,6 +25,10 @@ class ComposerStaticInit8d37a50cd4e099edbac317054db4af5f
         'Patterns\\' => 
         array (
             0 => __DIR__ . '/../..' . '/patterns',
+        ),
+        'Mvcframevork\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/mvc_framevork',
         ),
     );
 

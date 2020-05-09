@@ -1,7 +1,13 @@
 {
     "autoload": {
+
+      "files": [
+        "mvc_framevork/core/helpers/functions.php"
+      ],
+
        "psr-4": {
-          "Patterns\\": "patterns/"
+          "Patterns\\": "patterns/",        
+          "Mvcframevork\\": "mvc_framevork/"
         }
-  }
+    }
 }

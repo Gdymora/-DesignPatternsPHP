@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Patterns\\' => array($baseDir . '/patterns'),
+    'Mvcframevork\\' => array($baseDir . '/mvc_framevork'),
 );
